@@ -1,8 +1,8 @@
 #  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 app:
-  host-url: ${app.host-url}
-  test-mail: ${app.test-mail}
-  templates-update-cache: ${app.templates-update-cache}
+  host-url: ${APP_HOST_URL}
+  test-mail: ${APP_TEST_MAIL}
+  templates-update-cache: ${APP_TEMPLATES_UPDATE_CACHE}
   mail-sending-props:
     core-pool-size: 8
     max-pool-size: 100
@@ -26,9 +26,9 @@ spring:
         # https://stackoverflow.com/questions/21257819/what-is-the-difference-between-hibernate-jdbc-fetch-size-and-hibernate-jdbc-batc
         jdbc.batch_size: 20
   datasource:
-    url: ${spring.datasource.url}
-    username: ${spring.datasource.username}
-    password: ${spring.datasource.password`}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
 
   liquibase:
     changeLog: "classpath:db/changelog.sql"
@@ -51,19 +51,19 @@ spring:
       client:
         registration:
           github:
-            client-id: ${spring.security.oauth2.client.registration.github.client-id}
-            client-secret: ${spring.security.oauth2.client.registration.github.client-secret}
+            client-id: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENT_ID}
+            client-secret: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENT_SECRET}
             scope:
               - email
           google:
-            client-id: ${spring.security.oauth2.client.registration.google.client-id}
-            client-secret: ${spring.security.oauth2.client.registration.google.client-secrete}
+            client-id: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_ID}
+            client-secret: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENT_SECRET}
             scope:
               - email
               - profile
           gitlab:
-            client-id: ${spring.security.oauth2.client.registration.gitlab.client-id}
-            client-secret: ${spring.security.oauth2.client.registration.gitlab.client-secret}
+            client-id: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITLAB_CLIENT_ID}
+            client-secret: ${SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITLAB_CLIENT_SECRET}
             client-name: GitLab
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
@@ -86,18 +86,17 @@ spring:
           starttls:
             enable: true
           auth: true
-    host: ${spring.mail.host}
-    username: ${spring.mail.username'}
-    password: ${spring.mail.password}
-    port: ${spring.mail.port}
+    host: ${SPRING_MAIL_HOST}
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+    port: ${SPRING_MAIL_PORT}
   thymeleaf.check-template-location: false
 
   mvc.throw-exception-if-no-handler-found: true
   web.resources.add-mappings: false
   profiles:
     active: prod
-  config:
-    import: classpath:application-sensitive.properties
+
 
 
 
